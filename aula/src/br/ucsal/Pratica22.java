@@ -1,18 +1,16 @@
 package br.ucsal;
 
-public class Pratica21 {
+public class Pratica22 {
 
 	public static void main(String[] args) {
-		
-		int vl = 1;
-		int c1 = 0;
-		do {
 
+		int vl = 2;
+		int c1 = 1;
+		do {
 			System.out.println(vl);
 			vl += 2;
 			c1++;
-
-		}while(c1 < 20);
+		}while(c1 < 13);
 
 	}
 
