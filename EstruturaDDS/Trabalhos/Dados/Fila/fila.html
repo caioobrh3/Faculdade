@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Fila (FIFO) em JavaScript</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div id="queue">
+		<h1>Simulador de Fila (FIFO)</h1>
+		<div class="container">
+			<a href="/menu.html">
+				<button class="btn-back">Voltar ao Menu</button>
+			</a>
+		</div>	
+		<label for="size-input">Tamanho máximo da fila:</label>
+		<input type="number" id="size-input" value="10" min="1">
+		<input type="text" id="input" placeholder="Digite um elemento">
+		<button onclick="enqueue()">Adicionar</button>
+		<button onclick="dequeue()">Remover</button>
+		<button onclick="clearQueue()">Limpar</button>
+		<button onclick="enqueueRandom()">Adicionar Aleatório</button>
+		
+		<div id="queue-elements"></div>
+	</div>
+	<script src="script.js"></script>
+</body>
+</html>
