@@ -1,5 +1,4 @@
-package aula02;
-
+package POO;
 import java.util.Scanner;
 
 public class aula002p2 {

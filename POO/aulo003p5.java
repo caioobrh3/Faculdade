@@ -1,8 +1,8 @@
-package aula02;
+package POO;
 
 import java.util.Scanner;
 
-public class aulo003p4 {
+public class aulo003p5 {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
@@ -10,7 +10,7 @@ public class aulo003p4 {
         System.out.print("Digite o tamanho do primeiro lado: ");
         int lado1 = input.nextInt();
 
-        System.out.print("Digite o tamanho do segundo lado: ");46
+        System.out.print("Digite o tamanho do segundo lado: ");
         int lado2 = input.nextInt();
 
         System.out.print("Digite o tamanho do terceiro lado: ");

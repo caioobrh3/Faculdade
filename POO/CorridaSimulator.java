@@ -1,4 +1,4 @@
-package trabalho;
+package POO;
 import java.util.Random;
 
 public class CorridaSimulator {

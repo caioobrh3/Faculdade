@@ -1,4 +1,5 @@
-package caio;
+package EstruturaDDS.Aula;
+
 import java.util.Random;
 
 public class NumerosIguais {
