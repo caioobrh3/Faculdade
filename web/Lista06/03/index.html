@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>JavaScript</title>
+</head>
+<body>
+    <h1>JavaScript</h1>
+    <form id="formData">
+        <label for="name">Nome:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="maritalStatus">Estado Civil:</label>
+        <select id="maritalStatus" name="maritalStatus" required>
+            <option value="Solteiro(a)">Solteiro(a)</option>
+            <option value="Casado(a)">Casado(a)</option>
+        </select><br>
+
+        <label for="ageRange">Faixa Etária:</label>
+        <select id="ageRange" name="ageRange" required>
+            <option value="3 a 10 anos">3 a 10 anos</option>
+            <option value="11 a 25 anos">11 a 25 anos</option>
+            <option value="36 a 55 anos">36 a 55 anos</option>
+            <option value="56 a 100 anos">56 a 100 anos</option>
+        </select><br>
+
+        <button type="button" onclick="concatenateData()">Concatenar Dados</button>
+    </form>
+    <p id="result"></p>
+    <script src="script.js"></script>
+</body>
+</html>
