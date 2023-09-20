@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Formulário JSP</title>
+    <title>Formulï¿½rio JSP</title>
 </head>
 <body>
-    <h1>Formulário JSP</h1>
+    <h1>Formulï¿½rio JSP</h1>
     
     <form action="resultado.jsp" method="post">
         <label for="nome">Nome:</label>
@@ -14,10 +14,9 @@
         <select id="estadoCivil" name="estadoCivil">
             <option value="Solteiro(a)">Solteiro(a)</option>
             <option value="Casado(a)">Casado(a)</option>
-            <!-- Adicione mais opções aqui se necessário -->
         </select><br><br>
         
-        <label for="faixaEtaria">Faixa Etária:</label>
+        <label for="faixaEtaria">Faixa Etï¿½ria:</label>
         <select id="faixaEtaria" name="faixaEtaria">
             <option value="3 a 10 anos">3 a 10 anos</option>
             <option value="11 a 25 anos">11 a 25 anos</option>
@@ -29,6 +28,6 @@
     </form>
     
     <p>Autor: Seu Nome Completo</p>
-    <p>Palavras-chave: web, Seu Número de Matrícula, Atividades sobre JSP</p>
+    <p>Palavras-chave: web, Seu Nï¿½mero de Matrï¿½cula, Atividades sobre JSP</p>
 </body>
 </html>

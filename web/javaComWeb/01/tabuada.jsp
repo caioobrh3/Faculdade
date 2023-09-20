@@ -7,7 +7,7 @@
     <h1>Tabuada</h1>
     
     <form action="calcularTabuada.jsp" method="post">
-        <label for="numero">Informe um número inteiro:</label>
+        <label for="numero">Informe um nï¿½mero inteiro:</label>
         <input type="number" id="numero" name="numero" required>
         <input type="submit" value="Calcular">
     </form>

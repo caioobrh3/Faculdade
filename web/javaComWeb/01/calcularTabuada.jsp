@@ -8,7 +8,6 @@
     <h1>Resultado da Tabuada</h1>
     
     <%
-        // Obtém o número enviado pelo formulário
         int numero = Integer.parseInt(request.getParameter("numero"));
     %>
     
