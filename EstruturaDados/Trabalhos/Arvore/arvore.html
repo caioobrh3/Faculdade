@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Árvore (BST) em JavaScript</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div id="tree">
+		<h1>Simulador de Árvore (BST)</h1>
+		<div class="container">
+			<a href="/menu.html">
+				<button class="btn-back">Voltar ao Menu</button>
+			</a>
+		</div>	
+		<label for="input">Digite um valor:</label>
+		<input type="text" id="input">
+		<button onclick="insert()">Inserir</button>
+		<button onclick="remove()">Remover</button>
+		<button onclick="clearTree()">Limpar</button>
+		<button onclick="insertRandom()">Inserir Aleatório</button>
+		
+		<div id="tree-elements"></div>
+	</div>
+	<script src="script.js"></script>
+</body>
+</html>

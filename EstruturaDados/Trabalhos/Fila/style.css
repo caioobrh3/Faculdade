@@ -74,3 +74,13 @@ button:hover {
 .btn-back:hover {
 	background: #1F243D;
 }
+
+#queue-elements {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+#queue-elements > div {
+	margin: 5px;
+}
