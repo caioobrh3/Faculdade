@@ -1,0 +1,174 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+}
+
+.menu-center a,
+.menu-right a {
+    color: #FFF; 
+    text-decoration: none; 
+}
+
+.logo {
+    margin-left: 170px;
+    margin-top: 20px;
+
+}
+
+.menu-center ul {
+    display: flex;
+    list-style-type: none;
+    margin-right: auto;
+    margin-top: 50px;
+}
+
+.menu-center li {
+    margin-left: 20px;
+}
+
+.menu-right ul {
+    display: flex;
+    list-style-type: none;
+    margin-right: 150px;
+    margin-top: 50px;
+}
+
+.menu-right li {
+    margin-left: 20px;
+}
+
+.divider {
+    position: absolute;
+    width: 1253px;
+    height: 0px;
+    left: 150px;
+    top: 83px;
+    border: 1px solid #C9D6DF;
+}
+
+
+.background-image {
+    background-image: url('/imagens/banner.png');
+    background-size: cover;
+    height: 100vh; 
+}
+
+.bloco2 {
+    background-color:#52616B ;
+    padding-top: 129px;
+    padding-bottom: 37px;
+
+}
+
+.bloco-imagem1 {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+
+}
+
+.bloco-imagem2-3 {
+    display: flex;
+    justify-content: center; 
+    margin-top: 17px; 
+    padding-left: 25px;
+    padding-right: 5px;
+}
+
+
+.imagem2,
+.imagem3 {
+    width: 590px;
+    height: 341px;
+    margin-right: 20px; 
+}
+
+.bloco-imagem2-3 .imagem2,
+.bloco-imagem2-3 .imagem3 {
+    display: flex;
+    flex-direction: row;
+}
+
+.bloco3 {
+    background-image: url('/imagens/bmw-my-bmw-app-lp-cp-xxl\ 1.png');
+    background-size: cover;
+    height: 100vh; 
+    display: flex;
+    padding: 20px; 
+}
+
+
+.bloco3 .logo-svg {
+    margin-right: 20px; 
+    margin-top: 20px;
+}
+
+.bloco3 .texto {
+    margin-top: 5px;
+    color: #ffffff; 
+}
+
+
+.rodape {
+    background-color: #1E2022;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    padding-right: 200px;
+    padding-bottom: 50px;
+    align-items: center;
+}
+
+
+.rodape h2 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #fff;
+}
+
+
+.paginas {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.paginas li {
+    margin-bottom: 10px;
+}
+
+.paginas a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.redes-sociais {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.redes-sociais li:not(:last-child) {
+    margin-right: 10px;
+}
+
+.redes-sociais img {
+    max-width: 24px;
+    height: auto;
+}
+
+.social1 .social2{
+    color: #ffffff;
+}
