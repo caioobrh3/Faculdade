@@ -13,18 +13,15 @@ public class CalculadoraServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
-        // Obter os valores dos parâmetros do formulário
         int numero1 = Integer.parseInt(request.getParameter("numero1"));
         int numero2 = Integer.parseInt(request.getParameter("numero2"));
 
-        // Realizar operações matemáticas
         int soma = numero1 + numero2;
         int subtracao = numero1 - numero2;
         int multiplicacao = numero1 * numero2;
         int divisao = numero1 / numero2;
         int resto = numero1 % numero2;
 
-        // Exibir os resultados
         PrintWriter out = response.getWriter();
         out.println("<html>");
         out.println("<head>");
