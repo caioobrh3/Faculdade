@@ -19,13 +19,12 @@ const opcoesSobremesa = [
     { nome: "Cocada", imagem: "https://static.itdg.com.br/images/auto-auto/74fba6242a9e5774c6de951c8468d4d4/dicas-para-a-cocada-perfeita.jpg" }
 ];
 
-//Seções 
+
 const entradaSection = document.getElementById("entrada");
 const pratoPrincipalSection = document.getElementById("prato-principal");
 const sobremesaSection = document.getElementById("sobremesa");
 const menuFinalSection = document.getElementById("menu-final");
 
-//criar opções de escolha
 function criarOpcoes(opcoes, section) {
     opcoes.forEach(opcao => {
         const opcaoElement = document.createElement("div");
@@ -46,7 +45,7 @@ function criarOpcoes(opcoes, section) {
     });
 }
 
-//escolher um prato
+
 function escolherPrato(prato, section) {
     const pratoEscolhidoElement = document.createElement("div");
     pratoEscolhidoElement.classList.add("prato-escolhido");
