@@ -1,0 +1,172 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #1A1A1D;
+}
+
+select, input, form, option {
+    color: #0A2463;
+}
+
+body {
+    background-color: #E8F1F2;
+}
+
+#container-menu {
+    background-color: #247BA0;
+    padding: 10px;
+    text-align: center;
+    height: auto;
+}
+
+#container-menu p {
+    font-size: 24px;
+    text-align: center;
+    margin-top: 25px;
+}
+
+#menu {
+    background-color: #3DA5D9;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+ img.full-width {
+            width: 100%;   
+            height: auto;  
+        }
+
+.option-menu {
+    display: block;
+    background-color: #505BDA;
+    border: none;
+    color: #E8F1F2;
+    font-size: 16px;
+    text-decoration: none;
+    padding: 8px 0;
+    margin: 5px;
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    #menu {
+        width: 100%;
+    }
+
+    .option-menu {
+        width: calc(100% - 10px);
+        margin: 5px;
+    }
+}
+
+#box-main {
+    background-color: #3DA5D9;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+button {
+    background-color: #505BDA;
+    color: #E8F1F2;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.form-novo-prato {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.form-novo-prato table tr td input,
+.form-novo-prato table tr td select {
+    width: 100%;
+    height: 30px;
+    margin-bottom: 10px;
+}
+
+.form-novo-prato table tr td p {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.botao {
+    width: 100%;
+    height: 40px;
+    background-color: #505BDA;
+    color: #E8F1F2;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+
+.trash-icon {
+    margin-right: 8px;
+}
+
+.menu-heading {
+    text-align: center;
+    color: #E8F1F2;
+    font-size: 24px;
+}
+
+.menu-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.menu-title {
+    text-align: center;
+    color: #E8F1F2;
+    font-size: 24px;
+}
+
+ul li {
+    list-style: none;
+    margin-top: 10px;
+}
+
+.delete-button {
+    background-color: #1B98E0;
+    color: #E8F1F2;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.back-button {
+    background-color: #247BA0;
+    color: #E8F1F2;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.edit-button {
+    background-color: #3DA5D9;
+    color: #E8F1F2;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 3px;
+    cursor: pointer;
+}
