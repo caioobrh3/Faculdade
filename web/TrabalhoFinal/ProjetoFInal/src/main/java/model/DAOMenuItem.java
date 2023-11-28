@@ -1,5 +1,3 @@
-package model;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -9,277 +7,281 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DAOMenuItem {
-	 // Configuração do driver e credenciais do banco de dados
-	private String driver = "org.postgresql.Driver";
-	private String url = "jdbc:postgresql://localhost:5432/cardapio";
-	private String user = "postgres";
-	private String password = "postgres";
-	
-	 // Construtor que carrega o driver do banco de dados
-	public DAOMenuItem() {
-		try {
-			Class.forName(driver);
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-	}
+    // Configuração do driver e credenciais do banco de dados
+    private String driver = "org.postgresql.Driver";
+    private String url = "jdbc:postgresql://localhost:5432/cardapio";
+    private String usuario = "postgres";
+    private String senha = "postgres";
 
-	public Connection connect() throws SQLException {
-		return DriverManager.getConnection(url + "?charset=utf8", user, password);
-	}
+    // Construtor que carrega o driver do banco de dados
+    public DAOMenuItem() {
+        try {
+            Class.forName(driver);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 
+    // Método para estabelecer uma conexão com o banco de dados
+    public Connection conectar() throws SQLException {
+        return DriverManager.getConnection(url + "?charset=utf8", usuario, senha);
+    }
 
-	public void testConnection() {
-		try (Connection con = connect()) {
-			System.out.println("Conexão com o banco de dados estabelecida.");
-		} catch (SQLException e) {
-			handleSQLException(e);
-		}
-	}
+    // Método para testar a conexão com o banco de dados
+    public void testarConexao() {
+        try (Connection con = conectar()) {
+            System.out.println("Conexão com o banco de dados estabelecida.");
+        } catch (SQLException e) {
+            tratarExcecaoSQL(e);
+        }
+    }
 
-	
-	  // Insere um novo item no menu no banco de dados
-	public void insertMenuItem(MenuItem novoPrato) {
-		try (Connection con = connect();
-				PreparedStatement statement = con.prepareStatement("INSERT INTO menu (name, ingredients, type) VALUES (?, ?, ?)")) {
+    // Método para inserir um novo item no menu no banco de dados
+    public void inserirItemDeMenu(MenuItem novoPrato) {
+        try (Connection con = conectar();
+             PreparedStatement statement = con.prepareStatement("INSERT INTO menu (nome, ingredientes, tipo) VALUES (?, ?, ?)")) {
 
-			statement.setString(1, novoPrato.getName());
-			statement.setString(2, novoPrato.getIngredients());
-			statement.setString(3, novoPrato.getType());
+            statement.setString(1, novoPrato.getNome());
+            statement.setString(2, novoPrato.getIngredientes());
+            statement.setString(3, novoPrato.getTipo());
 
-			statement.executeUpdate();
+            statement.executeUpdate();
 
-			System.out.println("Novo prato inserido com sucesso!");
-		} catch (SQLException e) {
-			handleSQLException(e);
-		}
-	}
+            System.out.println("Novo prato inserido com sucesso!");
+        } catch (SQLException e) {
+            tratarExcecaoSQL(e);
+        }
+    }
 
-	// Recupera todos os itens do menu do banco de dados
-	public List<MenuItem> getMenuItems() {
-		List<MenuItem> menuItems = new ArrayList<>();
+    // Método para recuperar todos os itens do menu do banco de dados
+    public List<MenuItem> getItensDoMenu() {
+        List<MenuItem> itensDoMenu = new ArrayList<>();
 
-		try (Connection con = connect();
-				PreparedStatement statement = con.prepareStatement("SELECT * FROM menu");
-				ResultSet rs = statement.executeQuery()) {
+        try (Connection con = conectar();
+             PreparedStatement statement = con.prepareStatement("SELECT * FROM menu");
+             ResultSet rs = statement.executeQuery()) {
 
-			while (rs.next()) {
-				MenuItem menu = new MenuItem(
-						rs.getString("name"),
-						rs.getString("ingredients"),
-						rs.getString("type"));
-				menu.setId(rs.getString("id"));
-				menuItems.add(menu);
-			}
-		} catch (SQLException e) {
-			handleSQLException(e);
-		}
+            while (rs.next()) {
+                MenuItem menu = new MenuItem(
+                        rs.getString("nome"),
+                        rs.getString("ingredientes"),
+                        rs.getString("tipo"));
+                menu.setId(rs.getString("id"));
+                itensDoMenu.add(menu);
+            }
+        } catch (SQLException e) {
+            tratarExcecaoSQL(e);
+        }
 
-		return menuItems;
-	}
+        return itensDoMenu;
+    }
 
-	
-	
-	public void deleteMenuItem(int id) throws SQLException {
-		try (Connection connection = connect()) {
-			String sql = "DELETE FROM menu WHERE id = ?";
-			try (PreparedStatement statement = connection.prepareStatement(sql)) {
-				statement.setInt(1, id);
-				statement.executeUpdate();
-			}
-		} catch (SQLException e) {
-			handleSQLException(e);
-		}
-	}
+    // Método para excluir um item do menu pelo ID
+    public void excluirItemDeMenu(int id) throws SQLException {
+        try (Connection con = conectar()) {
+            String sql = "DELETE FROM menu WHERE id = ?";
+            try (PreparedStatement statement = con.prepareStatement(sql)) {
+                statement.setInt(1, id);
+                statement.executeUpdate();
+            }
+        } catch (SQLException e) {
+            tratarExcecaoSQL(e);
+        }
+    }
 
-	public MenuItem getMenuItemById(String id) {
-		try (Connection con = connect();
-				PreparedStatement statement = con.prepareStatement("SELECT * FROM menu WHERE id = ?")) {
+    // Método para obter um item do menu pelo ID
+    public MenuItem getItemDeMenuPorId(String id) {
+        try (Connection con = conectar();
+             PreparedStatement statement = con.prepareStatement("SELECT * FROM menu WHERE id = ?")) {
 
-			int itemId = Integer.parseInt(id);
-			statement.setInt(1, itemId);
+            int itemId = Integer.parseInt(id);
+            statement.setInt(1, itemId);
 
-			try (ResultSet rs = statement.executeQuery()) {
-				if (rs.next()) {
-					MenuItem menuItem = new MenuItem(
-							rs.getString("name"),
-							rs.getString("ingredients"),
-							rs.getString("type"));
-					menuItem.setId(String.valueOf(rs.getInt("id")));
-					return menuItem;
-				}
-			}
-		} catch (SQLException e) {
-			handleSQLException(e);
-		}
+            try (ResultSet rs = statement.executeQuery()) {
+                if (rs.next()) {
+                    MenuItem itemDeMenu = new MenuItem(
+                            rs.getString("nome"),
+                            rs.getString("ingredientes"),
+                            rs.getString("tipo"));
+                    itemDeMenu.setId(String.valueOf(rs.getInt("id")));
+                    return itemDeMenu;
+                }
+            }
+        } catch (SQLException e) {
+            tratarExcecaoSQL(e);
+        }
 
-		return null;
-	}
+        return null;
+    }
 
-	public boolean updateMenuItem(int id, MenuItem updatedMenuItem) {
-		try (Connection connection = connect()) {
-			String sql = "UPDATE menu SET name=?, ingredients=?, type=? WHERE id=?";
-			try (PreparedStatement statement = connection.prepareStatement(sql)) {
-				statement.setString(1, updatedMenuItem.getName());
-				statement.setString(2, updatedMenuItem.getIngredients());
-				statement.setString(3, updatedMenuItem.getType());
-				statement.setInt(4, id);
+    // Método para atualizar um item do menu pelo ID
+    public boolean atualizarItemDeMenu(int id, MenuItem itemDeMenuAtualizado) {
+        try (Connection con = conectar()) {
+            String sql = "UPDATE menu SET nome=?, ingredientes=?, tipo=? WHERE id=?";
+            try (PreparedStatement statement = con.prepareStatement(sql)) {
+                statement.setString(1, itemDeMenuAtualizado.getNome());
+                statement.setString(2, itemDeMenuAtualizado.getIngredientes());
+                statement.setString(3, itemDeMenuAtualizado.getTipo());
+                statement.setInt(4, id);
 
-				int rowsAffected = statement.executeUpdate();
-				return rowsAffected > 0;
-			}
-		} catch (SQLException e) {
-			handleSQLException(e);
-			return false;
-		}
-	}
+                int linhasAfetadas = statement.executeUpdate();
+                return linhasAfetadas > 0;
+            }
+        } catch (SQLException e) {
+            tratarExcecaoSQL(e);
+            return false;
+        }
+    }
 
-	private void handleSQLException(SQLException e) {
-		e.printStackTrace();
-		System.out.println("Erro na execução do SQL: " + e.getMessage());
-	}
+    // Método para tratar exceções SQL
+    private void tratarExcecaoSQL(SQLException e) {
+        e.printStackTrace();
+        System.out.println("Erro na execução do SQL: " + e.getMessage());
+    }
 
-	public void createOrder(String customerName, int entradaId, int pratoPrincipalId, int sobremesaId) {
-		try (Connection con = connect();
-				PreparedStatement statement = con.prepareStatement(
-						"INSERT INTO orders (customer_name, entrada_id, prato_principal_id, sobremesa_id) VALUES (?, ?, ?, ?)")) {
+    // Método para criar um novo pedido
+    public void criarPedido(String nomeCliente, int entradaId, int pratoPrincipalId, int sobremesaId) {
+        try (Connection con = conectar();
+             PreparedStatement statement = con.prepareStatement(
+                     "INSERT INTO pedidos (nome_cliente, entrada_id, prato_principal_id, sobremesa_id) VALUES (?, ?, ?, ?)")) {
 
-			statement.setString(1, customerName);
-			statement.setInt(2, entradaId);
-			statement.setInt(3, pratoPrincipalId);
-			statement.setInt(4, sobremesaId);
+            statement.setString(1, nomeCliente);
+            statement.setInt(2, entradaId);
+            statement.setInt(3, pratoPrincipalId);
+            statement.setInt(4, sobremesaId);
 
-			statement.executeUpdate();
+            statement.executeUpdate();
 
-			System.out.println("Pedido criado com sucesso!");
-		} catch (SQLException e) {
-			handleSQLException(e);
-		}
-	}
-    // Recupera itens do menu por tipo
-	public List<MenuItem> getMenuItemsByType(String type) {
-		List<MenuItem> menuItems = new ArrayList<>();
+            System.out.println("Pedido criado com sucesso!");
+        } catch (SQLException e) {
+            tratarExcecaoSQL(e);
+        }
+    }
 
-		try (Connection con = connect();
-				PreparedStatement statement = con.prepareStatement("SELECT * FROM menu WHERE type = ?")) {
+    // Método para recuperar itens do menu por tipo
+    public List<MenuItem> getItensDoMenuPorTipo(String tipo) {
+        List<MenuItem> itensDoMenu = new ArrayList<>();
 
-			statement.setString(1, type);
+        try (Connection con = conectar();
+             PreparedStatement statement = con.prepareStatement("SELECT * FROM menu WHERE tipo = ?")) {
 
-			try (ResultSet rs = statement.executeQuery()) {
-				while (rs.next()) {
-					MenuItem menuItem = new MenuItem(
-							rs.getString("name"),
-							rs.getString("ingredients"),
-							rs.getString("type"));
-					menuItem.setId(rs.getString("id"));
-					menuItems.add(menuItem);
-				}
-			}
-		} catch (SQLException e) {
-			handleSQLException(e);
-		}
+            statement.setString(1, tipo);
 
-		return menuItems;
-	}
-	
-	// Recupera todos os pedidos do banco de dados
-	public List<Order> getOrders() {
-	    List<Order> orders = new ArrayList<>();
+            try (ResultSet rs = statement.executeQuery()) {
+                while (rs.next()) {
+                    MenuItem itemDeMenu = new MenuItem(
+                            rs.getString("nome"),
+                            rs.getString("ingredientes"),
+                            rs.getString("tipo"));
+                    itemDeMenu.setId(rs.getString("id"));
+                    itensDoMenu.add(itemDeMenu);
+                }
+            }
+        } catch (SQLException e) {
+            tratarExcecaoSQL(e);
+        }
 
-	    try (Connection con = connect();
-	         PreparedStatement statement = con.prepareStatement("SELECT * FROM orders");
-	         ResultSet rs = statement.executeQuery()) {
+        return itensDoMenu;
+    }
 
-	        while (rs.next()) {
-	            Order order = new Order(
-	                    rs.getInt("id"),
-	                    rs.getString("customer_name"),
-	                    rs.getInt("entrada_id"),
-	                    rs.getInt("prato_principal_id"),
-	                    rs.getInt("sobremesa_id"),
-	                    rs.getString("status"),
-	                    rs.getTimestamp("created_at"),  
-	                    rs.getTimestamp("updated_at")   
-	            );
-	            orders.add(order);
-	        }
-	    } catch (SQLException e) {
-	        handleSQLException(e);
-	    }
+    // Método para recuperar todos os pedidos do banco de dados
+    public List<Pedido> getPedidos() {
+        List<Pedido> pedidos = new ArrayList<>();
 
-	    return orders;
-	}
+        try (Connection con = conectar();
+             PreparedStatement statement = con.prepareStatement("SELECT * FROM pedidos");
+             ResultSet rs = statement.executeQuery()) {
 
-	public String getMenuItemNameById(int itemId) {
-		String itemName = "N/A"; 
+            while (rs.next()) {
+                Pedido pedido = new Pedido(
+                        rs.getInt("id"),
+                        rs.getString("nome_cliente"),
+                        rs.getInt("entrada_id"),
+                        rs.getInt("prato_principal_id"),
+                        rs.getInt("sobremesa_id"),
+                        rs.getString("status"),
+                        rs.getTimestamp("data_criacao"),
+                        rs.getTimestamp("data_atualizacao")
+                );
+                pedidos.add(pedido);
+            }
+        } catch (SQLException e) {
+            tratarExcecaoSQL(e);
+        }
 
-		try (Connection con = connect()) {
-			String query = "SELECT name FROM menu WHERE id = ?";
-			try (PreparedStatement pst = con.prepareStatement(query)) {
-				pst.setInt(1, itemId);
-				try (ResultSet rs = pst.executeQuery()) {
-					if (rs.next()) {
-						itemName = rs.getString("name");
-					}
-				}
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+        return pedidos;
+    }
 
-		return itemName;
-	}
-	
+    // Método para obter o nome de um item do menu pelo ID
+    public String getNomeItemDeMenuPorId(int idItem) {
+        String nomeItem = "N/A";
 
-    // Atualiza o status de um pedido pelo ID
-    public boolean updateOrderStatus(int orderId, String newStatus) {
+        try (Connection con = conectar()) {
+            String query = "SELECT nome FROM menu WHERE id = ?";
+            try (PreparedStatement pst = con.prepareStatement(query)) {
+                pst.setInt(1, idItem);
+                try (ResultSet rs = pst.executeQuery()) {
+                    if (rs.next()) {
+                        nomeItem = rs.getString("nome");
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return nomeItem;
+    }
+
+    // Método para atualizar o status de um pedido pelo ID
+    public boolean atualizarStatusDoPedido(int idPedido, String novoStatus) {
         Connection con = null;
         PreparedStatement ps = null;
 
         try {
-            con = connect();
-            String query = "UPDATE orders SET status = ? WHERE id = ?";
+            con = conectar();
+            String query = "UPDATE pedidos SET status = ? WHERE id = ?";
             ps = con.prepareStatement(query);
-            ps.setString(1, newStatus);
-            ps.setInt(2, orderId);
+            ps.setString(1, novoStatus);
+            ps.setInt(2, idPedido);
 
-            int rowsAffected = ps.executeUpdate();
-            return rowsAffected > 0;
+            int linhasAfetadas = ps.executeUpdate();
+            return linhasAfetadas > 0;
 
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            closeResources(con, ps, null);
+            fecharRecursos(con, ps, null);
         }
 
-        return false; // Return false if the update fails
+        return false; // Retorna falso se a atualização falhar
     }
 
-    // Delete pelo id
-    public boolean deleteOrder(int orderId) {
+    // Método para excluir um pedido pelo ID
+    public boolean excluirPedido(int idPedido) {
         Connection con = null;
         PreparedStatement ps = null;
 
         try {
-            con = connect();
-            String query = "DELETE FROM orders WHERE id = ?";
+            con = conectar();
+            String query = "DELETE FROM pedidos WHERE id = ?";
             ps = con.prepareStatement(query);
-            ps.setInt(1, orderId);
+            ps.setInt(1, idPedido);
 
-            int rowsAffected = ps.executeUpdate();
-            return rowsAffected > 0;
+            int linhasAfetadas = ps.executeUpdate();
+            return linhasAfetadas > 0;
 
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            closeResources(con, ps, null);
+            fecharRecursos(con, ps, null);
         }
 
-        return false; 
+        return false;
     }
 
-    // fechar recursos do banco de dados
-    private void closeResources(Connection con, PreparedStatement ps, ResultSet rs) {
+    // Método para fechar recursos do banco de dados
+    private void fecharRecursos(Connection con, PreparedStatement ps, ResultSet rs) {
         try {
             if (rs != null) rs.close();
             if (ps != null) ps.close();

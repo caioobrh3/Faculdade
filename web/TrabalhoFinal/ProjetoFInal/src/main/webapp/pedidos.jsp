@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ page import="java.util.List, model.Order, model.MenuItem, model.DAOMenuItem"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <title>Pedidos</title>
     <link rel="stylesheet" href="style.css">
@@ -65,10 +65,10 @@
                             <input type="hidden" name="idToUpdate" value="<%=order.getId()%>">
                             <select name="status" required>
                                 <option value="" disabled <%=selected("", order.getStatus())%>>Selecione status</option>
-                                <option value="pendente" <%=selected("pendente", order.getStatus())%>>pendente</option>
-                                <option value="cancelado" <%=selected("cancelado", order.getStatus())%>>cancelado</option>
-                                <option value="pronto" <%=selected("pronto", order.getStatus())%>>pronto</option>
-                                <option value="entregue" <%=selected("entregue", order.getStatus())%>>entregue</option>
+                                <option value="pendente" <%=selected("pendente", order.getStatus())%>>Pendente</option>
+                                <option value="cancelado" <%=selected("cancelado", order.getStatus())%>>Cancelado</option>
+                                <option value="pronto" <%=selected("pronto", order.getStatus())%>>Pronto</option>
+                                <option value="entregue" <%=selected("entregue", order.getStatus())%>>Entregue</option>
                             </select>
                             <button type="submit" class="edit-button">Atualizar</button>
                         </form>
@@ -79,7 +79,7 @@
             <table>
                 <tr>
                     <td>
-                        <button onclick="redirectToHome()" class="back-button botao">Home</button>
+                        <button onclick="redirectToHome()" class="back-button botao">Página Principal</button>
                     </td>
                 </tr>
             </table>
@@ -88,17 +88,17 @@
 </body>
 </html>
 
-<%! // Helper method to format timestamp with date and time
+<%! // Método auxiliar para formatar o timestamp com data e hora
     private String formatTimestamp(java.sql.Timestamp timestamp) {
         if (timestamp == null) {
-            return ""; // Handle null timestamps as needed
+            return ""; // Lidar com timestamps nulos conforme necessário
         }
         java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("dd-MM-yyyy HH:mm");
         return sdf.format(timestamp);
     }
 
-    // Helper method to simplify selected attribute in the dropdown
-    private String selected(String expected, String actual) {
-        return expected.equals(actual) ? "selected" : "";
+    // Método auxiliar para simplificar o atributo selecionado na lista suspensa
+    private String selected(String esperado, String atual) {
+        return esperado.equals(atual) ? "selected" : "";
     }
 %>

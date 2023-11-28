@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.List, model.MenuItem" %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +16,7 @@
     <main>
         <div id="box-main">
             <h2 class="menu-heading">Fazer pedido</h2>
-            <%-- Display success message if it exists in the request attribute --%>
+            <%-- Exibir mensagem de sucesso, se existir no atributo de requisição --%>
             <div class="success-message">
                 <% if (request.getAttribute("orderSuccess") != null) { %>
                     Pedido criado com sucesso!
@@ -35,7 +35,7 @@
                                     List<MenuItem> entradaItems = (List<MenuItem>) request.getAttribute("entradaItems");
                                     for (MenuItem menuItem : entradaItems) {
                                 %>
-                                <option value="<%=menuItem.getId()%>"><%=menuItem.getName()%></option>
+                                <option value="<%=menuItem.getId()%>"><%=menuItem.getNome()%></option>
                                 <%
                                     }
                                 %>
@@ -51,7 +51,7 @@
                                     List<MenuItem> pratoPrincipalItems = (List<MenuItem>) request.getAttribute("pratoPrincipalItems");
                                     for (MenuItem menuItem : pratoPrincipalItems) {
                                 %>
-                                <option value="<%=menuItem.getId()%>"><%=menuItem.getName()%></option>
+                                <option value="<%=menuItem.getId()%>"><%=menuItem.getNome()%></option>
                                 <%
                                     }
                                 %>
@@ -67,7 +67,7 @@
                                     List<MenuItem> sobremesaItems = (List<MenuItem>) request.getAttribute("sobremesaItems");
                                     for (MenuItem menuItem : sobremesaItems) {
                                 %>
-                                <option value="<%=menuItem.getId()%>"><%=menuItem.getName()%></option>
+                                <option value="<%=menuItem.getId()%>"><%=menuItem.getNome()%></option>
                                 <%
                                     }
                                 %>

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.List, model.MenuItem" %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,14 +10,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="script/MenuValidator.js"></script>
      <style>
-        /* Additional styles for responsiveness */
+        /* Estilos adicionais para responsividade */
         @media (max-width: 600px) {
             table {
                 width: 100%;
                 overflow-x: auto;
             }
 
-            /* Hide columns on smaller devices */
+            /* Ocultar colunas em dispositivos menores */
             .menu-table th:nth-child(1),
             .menu-table td:nth-child(1),
             .menu-table th:nth-child(3),
@@ -50,7 +50,7 @@
                         for (MenuItem menuItem : menuItems) { %>
                     <tr>
                         <td><%=menuItem.getId()%></td>
-                        <td><%=menuItem.getName()%></td>
+                        <td><%=menuItem.getNome()%></td>
                         <td><%=menuItem.getIngredients()%></td>
                         <td><%=menuItem.getType()%></td>
                         <td>

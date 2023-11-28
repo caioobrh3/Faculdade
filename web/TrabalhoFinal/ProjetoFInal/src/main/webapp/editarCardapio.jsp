@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="model.DAOMenuItem, model.MenuItem"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,7 +29,7 @@
 					<tr>
 						<td><label for="name">Nome:</label></td>
 						<td><input type="text" name="name"
-							value="<%=menuItem.getName()%>" required class="input-field"></td>
+							value="<%=menuItem.getNome()%>" required class="input-field"></td>
 					</tr>
 					<tr>
 						<td><label for="ingredients">Ingredientes:</label></td>
@@ -66,8 +66,8 @@
 </html>
 
 <%!
-    // Helper method to simplify selected attribute in the dropdown
-    private String selected(String expected, String actual) {
-        return expected.equals(actual) ? "selected" : "";
+    // Método auxiliar para simplificar o atributo "selected" no dropdown
+    private String selected(String esperado, String atual) {
+        return esperado.equals(atual) ? "selected" : "";
     }
 %>
