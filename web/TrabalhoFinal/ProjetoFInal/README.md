@@ -1,7 +1,7 @@
-# Guia do Usuário 🍽️
+# Guia do cartapio digital
 
 
-## Opções do Menu:
+## Opções do Cardapio
 
 ### 1. Cardápio
 - Visualize o cardápio do restaurante.
@@ -22,6 +22,6 @@
 
 ###Requisitos
 
-Certifique-se de ter o [Java Development Kit (JDK) ]
-Baixe e instale o [Apache Tomcat 9]
-Instale o [PostgreSQL Database]
+[Java Development Kit (JDK) ]
+[Apache Tomcat 9]
+[PostgreSQL Database]
