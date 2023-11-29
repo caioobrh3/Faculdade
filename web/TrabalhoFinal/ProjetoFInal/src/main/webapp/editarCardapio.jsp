@@ -64,10 +64,3 @@
 	</main>
 </body>
 </html>
-
-<%!
-    // Método auxiliar para simplificar o atributo "selected" no dropdown
-    private String selected(String esperado, String atual) {
-        return esperado.equals(atual) ? "selected" : "";
-    }
-%>

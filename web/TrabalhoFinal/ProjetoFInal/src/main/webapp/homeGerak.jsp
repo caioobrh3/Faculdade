@@ -15,16 +15,16 @@
         <div id="menu">
             <ul>
                 <li>
-                    <a href="main" class="option-menu">Cardápio</a>
+                    <a href="principalCardapio.jsp" class="option-menu">Cardápio</a>
                 </li>
                  <li>
-                    <a href="newMenu.html" class="option-menu">Inserir Prato</a>
+                    <a href="novoItemCD.html" class="option-menu">Inserir Prato</a>
                 </li>
                  <li>
-                    <a href="showOrders" class="option-menu">Pedidos</a>
+                    <a href="pedidos.jsp" class="option-menu">Pedidos</a>
                 </li>
                 <li>
-                    <a href="createOrder" class="option-menu">Inserir Pedido</a>
+                    <a href="criarPedido.jsp" class="option-menu">Inserir Pedido</a>
                 </li>
             </ul>
         </div>
