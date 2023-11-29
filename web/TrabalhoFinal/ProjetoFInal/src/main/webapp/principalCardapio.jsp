@@ -9,25 +9,6 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="script/MenuValidator.js"></script>
-     <style>
-        /* Estilos adicionais para responsividade */
-        @media (max-width: 600px) {
-            table {
-                width: 100%;
-                overflow-x: auto;
-            }
-
-            /* Ocultar colunas em dispositivos menores */
-            .menu-table th:nth-child(1),
-            .menu-table td:nth-child(1),
-            .menu-table th:nth-child(3),
-            .menu-table td:nth-child(3),
-            .menu-table th:nth-child(4),
-            .menu-table td:nth-child(4) {
-                display: none;
-            }
-        }
-    </style>
 </head>
 <body>
     <header id="container-menu">

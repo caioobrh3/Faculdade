@@ -7,16 +7,6 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="script/MenuValidator.js"></script>
-    <style>
-        @media only screen and (max-width: 900px) {
-            .menu-table th:nth-child(3),
-                .menu-table td:nth-child(3), .menu-table th:nth-child(4), .menu-table td:nth-child(4),
-                .menu-table th:nth-child(5), .menu-table td:nth-child(5), .menu-table th:nth-child(6),
-                .menu-table td:nth-child(6), .menu-table th:nth-child(7), .menu-table td:nth-child(7) {
-                display: none;
-            }
-        }
-    </style>
 </head>
 <body>
     <header id="container-menu">
